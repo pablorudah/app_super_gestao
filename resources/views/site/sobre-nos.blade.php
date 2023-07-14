@@ -17,7 +17,7 @@
     <div class="rodape">
         <div class="redes-sociais">
             <h2>Redes sociais</h2>
-            <img src="{{ asset('img/facebook.png') }}">
+            <img src="{{ asset('img/twitter.png') }}">
             <img src="{{ asset('img/linkedin.png') }}">
             <img src="{{ asset('img/youtube.png') }}">
         </div>
