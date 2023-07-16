@@ -35,7 +35,7 @@ Route::middleware('log.acesso', 'autenticacao:padrao')->prefix('/app')->group(fu
     Route::get('/fornecedor/adicionar', [\App\Http\Controllers\FornecedoresController::class, 'adicionar'])->name('app.fornecedor.adicionar');
     Route::post('/fornecedor/adicionar', [\App\Http\Controllers\FornecedoresController::class, 'adicionar'])->name('app.fornecedor.adicionar');
     Route::get('/fornecedor/editar/{id}/{message?}', [\App\Http\Controllers\FornecedoresController::class, 'editar'])->name('app.fornecedor.editar');
-    Route::get('/fornecedor/excluir', [\App\Http\Controllers\FornecedoresController::class, 'excluir'])->name('app.fornecedor.excluir');
+    Route::get('/fornecedor/excluir/{id}', [\App\Http\Controllers\FornecedoresController::class, 'excluir'])->name('app.fornecedor.excluir');
     
 
     Route::get('/produto', [\App\Http\Controllers\ProdutoController::class, 'index'])->name('app.produto');

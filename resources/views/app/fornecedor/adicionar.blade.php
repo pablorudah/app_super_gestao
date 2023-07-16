@@ -6,7 +6,7 @@
 @section('conteudo')
     <div class="conteudo-pagina">
         <div class="titulo-pagina-2">
-            <p>Fornecedor</p>
+            <p>Fornecedor - Adicionar Novo</p>
         </div>
 
         <div class="menu">
