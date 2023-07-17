@@ -42,6 +42,6 @@ class SiteContatoSeeder extends Seeder
         $contato2->save();
         */
 
-        SiteContato::factory()->count(100)->create();
+        SiteContato::factory()->count(20)->create();
     }
 }

@@ -38,6 +38,6 @@ class FornecedorSeeder extends Seeder
             'email' => 'contato@fornecedor300.com.br',
         ]); */
 
-        Fornecedor::factory()->count(100)->create();
+        Fornecedor::factory()->count(20)->create();
     }
 }
