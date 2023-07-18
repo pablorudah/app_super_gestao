@@ -23,7 +23,7 @@ Route::post('/contato', [\App\Http\Controllers\ContatoController::class, 'salvar
 Route::get('/login/{erro?}', [\App\Http\Controllers\LoginController::class, 'index'])->name('site.login');
 Route::post('/login', [\App\Http\Controllers\LoginController::class, 'autenticar'])->name('site.login');
 
-Route::middleware('autenticacao:padrao')->prefix('/app')->group(function() {
+Route::middleware('log.acesso', 'autenticacao:padrao')->prefix('/app')->group(function() {
     Route::get('/home', [\App\Http\Controllers\HomeController::class, 'index'])->name('app.home');
     Route::get('/sair', [\App\Http\Controllers\LoginController::class, 'sair'])->name('app.sair');
     Route::get('/cliente', [\App\Http\Controllers\ClienteController::class, 'index'])->name('app.cliente');
