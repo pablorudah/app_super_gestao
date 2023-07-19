@@ -46,8 +46,6 @@ Route::middleware('log.acesso', 'autenticacao:padrao')->prefix('/app')->group(fu
 
 Route::get('/teste/{p1}/{p2}', [\App\Http\Controllers\TesteController::class, 'teste'])->name('teste');
 
-Route::fallback(function() {
-    echo 'A rota acessada não existe. <a href="'.route('site.index').'">Clique aqui</a> para ir para a página inicial.';
-});
+Route::fallback("ErrorsController@show404");
 
 
