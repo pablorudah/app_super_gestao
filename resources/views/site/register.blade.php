@@ -5,22 +5,20 @@
 @section('conteudo')
     <div class="conteudo-pagina">
         <div class="titulo-pagina">
-            <h1>Login</h1>
+            <h1>Crie Sua Conta</h1>
         </div>
 
         <div class="informacao-pagina">
             <div style="width:30%; margin-left: auto; margin-right: auto">
-                <form action={{ route('site.login') }} method="POST">
+                <form action={{ route('site.register') }} method="POST">
                     @csrf
-                    <input type="text" value="{{ old('usuario') }}" name="usuario" placeholder="Usuário" class="borda-preta">
-                    {{ $errors->has('usuario') ? $errors->first('usuario') : '' }}
+                    <input type="text" value="{{ old('nome') }}" name="nome" placeholder="Nome" class="borda-preta">
+                    {{ $errors->has('nome') ? $errors->first('nome') : '' }}
+                    <input type="text" value="{{ old('email') }}" name="email" placeholder="Usuário" class="borda-preta">
+                    {{ $errors->has('email') ? $errors->first('email') : '' }}
                     <input type="password" value="{{ old('senha') }}" name="senha" placeholder="Senha" class="borda-preta">
                     {{ $errors->has('senha') ? $errors->first('senha') : '' }}
-                    <button type="submit" class="borda-preta">Acessar</button>
-                </form>
-
-                <form action={{ route('site.register') }}>
-                    <button type="submit" class="borda-preta">Ainda não tem conta ? Clique aqui para criar a sua.</button>
+                    <button type="submit" class="borda-preta">Criar Conta</button>
                 </form>
 
                 {{ isset($erro) && $erro != '' ? $erro : '' }}

@@ -22,6 +22,8 @@ Route::post('/contato', [\App\Http\Controllers\ContatoController::class, 'salvar
 
 Route::get('/login/{erro?}', [\App\Http\Controllers\LoginController::class, 'index'])->name('site.login');
 Route::post('/login', [\App\Http\Controllers\LoginController::class, 'autenticar'])->name('site.login');
+Route::get('/register/{erro?}', [\App\Http\Controllers\RegisterController::class, 'index'])->name('site.register');
+Route::post('/register', [\App\Http\Controllers\RegisterController::class, 'register'])->name('site.register');
 
 Route::middleware('log.acesso', 'autenticacao:padrao')->prefix('/app')->group(function() {
     Route::get('/home', [\App\Http\Controllers\HomeController::class, 'index'])->name('app.home');
