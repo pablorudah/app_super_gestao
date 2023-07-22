@@ -39,7 +39,7 @@ class RegisterController extends Controller
         $user->save();
 
         // Redireciona para a página de login com sucesso
-        return redirect()->route('site.login')
+        return redirect()->route('site.login.index')
                 ->with('success', 'Conta criada com sucesso! Faça login para acessar.');
     }
 }

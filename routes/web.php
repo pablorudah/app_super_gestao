@@ -20,8 +20,8 @@ Route::get('/sobre-nos', [\App\Http\Controllers\SobreNosController::class, 'sobr
 Route::get('/contato', [\App\Http\Controllers\ContatoController::class, 'contato'])->name('site.contato.request');
 Route::post('/contato', [\App\Http\Controllers\ContatoController::class, 'salvar'])->name('site.contato.salvar');
 
-Route::get('/login/{erro?}', [\App\Http\Controllers\LoginController::class, 'index'])->name('site.login');
-Route::post('/login', [\App\Http\Controllers\LoginController::class, 'autenticar'])->name('site.login');
+Route::get('/login/{erro?}', [\App\Http\Controllers\LoginController::class, 'index'])->name('site.login.index');
+Route::post('/login', [\App\Http\Controllers\LoginController::class, 'autenticar'])->name('site.login.autenticar');
 
 Route::middleware('log.acesso', 'autenticacao:padrao')->prefix('/app')->group(function() {
     Route::get('/home', [\App\Http\Controllers\HomeController::class, 'index'])->name('app.home');
