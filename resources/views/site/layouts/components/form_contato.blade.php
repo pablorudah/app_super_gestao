@@ -1,6 +1,6 @@
 {{ $slot }}
 
-<form action={{ route('site.contato') }} method="POST">
+<form action={{ route('site.contato.salvar') }} method="POST">
     @csrf
     <input name="nome" value="{{ old('nome') }}" type="text" placeholder="Nome" class="{{ $classe }}">
     @if( $errors->has('nome') )
