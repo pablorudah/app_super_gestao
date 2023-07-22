@@ -21,28 +21,8 @@
             {{-- {{ $message ?? ''}} --}}
 
             <div style="width: 30%; margin-left: auto; margin-right: auto; ">
-                <form method="POST" action="{{ route('produto.update', ['produto' => $produto->id]) }}">
-                    @csrf
-                    @method('PUT')
-                    <input type="text" name="nome" value="{{ $produto->nome ?? old('nome') }}" placeholder="Nome" class="border-black">
-                    {{ $errors->has('nome') ? $errors->first('nome') : '' }} 
-                    
-                    <input type="text" name="descricao" value="{{ $produto->descricao ?? old('descricao') }}" placeholder="Descricao" class="border-black">
-                    {{ $errors->has('descricao') ? $errors->first('descricao') : '' }}
-                    
-                    <input type="text" name="peso" value="{{ $produto->peso ?? old('peso') }}" placeholder="Peso" class="border-black">
-                    {{ $errors->has('peso') ? $errors->first('peso') : '' }}
-                    
-                    <select name="unidade_id">
-                        <option>-- Selecione a Unidade de Medida --</option>
-                            @foreach ($unidades as $unidade)
-                                <option value="{{ $unidade->id }}" {{ ($produto->unidade_id ?? old('unidade_id')) == $unidade->id ? 'selected' : '' }}>{{ $unidade->descricao }}</option> 
-                            @endforeach
-                    </select>
-                    {{ $errors->has('unidade_id') ? $errors->first('unidade_id') : '' }}
-                    
-                    <button type="submit" class="border-black">Adicionar</button>
-                </form>
+                @component('app.produto._components.form_create_edit', ['unidades' => $unidades, 'produto' => $produto])
+                @endcomponent
             </div>
         </div>
     </div>

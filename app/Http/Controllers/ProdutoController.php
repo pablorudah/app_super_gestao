@@ -71,6 +71,8 @@ class ProdutoController extends Controller
     public function edit(Produto $produto)
     {
         return view('app.produto.edit', ['produto' => $produto, 'unidades' => Unidade::all()]);
+
+        //return view('app.produto.create', ['produto' => $produto, 'unidades' => Unidade::all()]);
     }
 
     /**
@@ -92,6 +94,8 @@ class ProdutoController extends Controller
      */
     public function destroy(Produto $produto)
     {
-        //
+        $produto->delete();
+
+        return redirect()->route('produto.index');
     }
 }
