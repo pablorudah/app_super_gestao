@@ -22,8 +22,6 @@ Route::post('/contato', [\App\Http\Controllers\ContatoController::class, 'salvar
 
 Route::get('/login/{erro?}', [\App\Http\Controllers\LoginController::class, 'index'])->name('site.login');
 Route::post('/login', [\App\Http\Controllers\LoginController::class, 'autenticar'])->name('site.login');
-Route::get('/register/{erro?}', [\App\Http\Controllers\RegisterController::class, 'index'])->name('site.register');
-Route::post('/register', [\App\Http\Controllers\RegisterController::class, 'register'])->name('site.register');
 
 Route::middleware('log.acesso', 'autenticacao:padrao')->prefix('/app')->group(function() {
     Route::get('/home', [\App\Http\Controllers\HomeController::class, 'index'])->name('app.home');
@@ -32,10 +30,10 @@ Route::middleware('log.acesso', 'autenticacao:padrao')->prefix('/app')->group(fu
     
     //Fornecedores
     Route::get('/fornecedor', [\App\Http\Controllers\FornecedoresController::class, 'index'])->name('app.fornecedor');
-    Route::post('/fornecedor/listar', [\App\Http\Controllers\FornecedoresController::class, 'listar'])->name('app.fornecedor.listar');
+    Route::post('/fornecedor/listar', [\App\Http\Controllers\FornecedoresController::class, 'listar'])->name('app.fornecedor.listar.teste');
     Route::get('/fornecedor/listar', [\App\Http\Controllers\FornecedoresController::class, 'listar'])->name('app.fornecedor.listar');
+    Route::post('/fornecedor/adicionar', [\App\Http\Controllers\FornecedoresController::class, 'adicionar'])->name('app.fornecedor.adicionar.teste');
     Route::get('/fornecedor/adicionar', [\App\Http\Controllers\FornecedoresController::class, 'adicionar'])->name('app.fornecedor.adicionar');
-    Route::post('/fornecedor/adicionar', [\App\Http\Controllers\FornecedoresController::class, 'adicionar'])->name('app.fornecedor.adicionar');
     Route::get('/fornecedor/editar/{id}/{message?}', [\App\Http\Controllers\FornecedoresController::class, 'editar'])->name('app.fornecedor.editar');
     Route::get('/fornecedor/excluir/{id}', [\App\Http\Controllers\FornecedoresController::class, 'excluir'])->name('app.fornecedor.excluir');
     

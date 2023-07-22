@@ -37,7 +37,7 @@
                     <input type="text" name="email" value="{{ $fornecedor->email ?? old('email') }}" placeholder="Email" class="border-black">
                     {{ $errors->has('email') ? $errors->first('email') : '' }}
                     
-                    <button type="submit" class="border-black">Adicionar</button>
+                    <button type="submit" class="border-black">Cadastrar</button>
                 </form>
             </div>
         </div>

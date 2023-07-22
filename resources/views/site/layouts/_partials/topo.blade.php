@@ -7,7 +7,6 @@
 
     <div class="menu">
         <ul>
-            <li><a href="{{ route('site.register') }}">Criar Conta</a></li>
             <li><a href="{{ route('site.login') }}">Login</a></li>
             <li><a href="{{ route('site.index') }}">Principal</a></li>            
             <li><a href="{{ route('site.sobrenos') }}">Sobre Nós</a></li>
