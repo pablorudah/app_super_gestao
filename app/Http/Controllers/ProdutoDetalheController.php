@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Unidade;
 use App\Models\ProdutoDetalhe;
+use App\Models\ItemDetalhe;
 
 class ProdutoDetalheController extends Controller
 {
@@ -49,9 +50,11 @@ class ProdutoDetalheController extends Controller
      * 
      * @param \App\Models\ProdutoDetalhe $produtoDetalhe
      */
-    public function edit(ProdutoDetalhe $produtoDetalhe)
+    public function edit($id)
     {
         //dd($produtoDetalhe);
+
+        $produtoDetalhe = ItemDetalhe::with(['produto'])->find($id);
 
         $unidades = new Unidade();
 
