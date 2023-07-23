@@ -40,6 +40,9 @@ Route::middleware('log.acesso', 'autenticacao:padrao')->prefix('/app')->group(fu
     //Produtos
     Route::resource('produto', \App\Http\Controllers\ProdutoController::class);
 
+    //Produtos Detalhes
+    Route::resource('produto-detalhe', \App\Http\Controllers\ProdutoDetalheController::class);
+
 });
 
 Route::get('/teste/{p1}/{p2}', [\App\Http\Controllers\TesteController::class, 'teste'])->name('teste');
