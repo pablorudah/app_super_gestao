@@ -33,21 +33,22 @@ class PedidoProdutoController extends Controller
     {
         $regras = [
             'produto_id' => 'exists:produtos,id',
+            'quantidade' => 'required',
         ];
 
         $feedback = [
             'produto_id.exists' => 'O produto informado não existe',
+            'required' => 'O campo :attribute deve ser preenchido',
         ];
 
         $request->validate($regras, $feedback);
 
-        $pedidoProduto = new PedidoProduto();
-        $pedidoProduto->pedido_id = $pedido->id;
-        $pedidoProduto->produto_id = $request->get('produto_id');
-
-        //dd($pedidoProduto);
-
-        $pedidoProduto->save();
+        $pedido->produtos()->attach(
+            $request->get('produto_id'),
+            [
+                'quantidade' => $request->get('quantidade'),
+            ]
+        );
 
         return redirect()->route('pedido-produto.create', ['pedido' => $pedido->id]);
     }
@@ -79,8 +80,13 @@ class PedidoProdutoController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(PedidoProduto $pedidoProduto)
     {
-        //
+        //$pedido->produtos()->detach($produto->id);
+        //return redirect()->route('pedido-produto.create', ['pedido' => $pedido->id]);
+
+        $pedidoProduto->delete();
+
+        return redirect()->route('pedido-produto.create', ['pedido' => $pedidoProduto->pedido_id]);
     }
 }
